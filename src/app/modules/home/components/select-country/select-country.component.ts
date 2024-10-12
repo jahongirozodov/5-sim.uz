@@ -1,6 +1,6 @@
 import { Component, inject, OnChanges } from '@angular/core';
 import { SearchInputComponent } from '../../../../shared/components/search-input/search-input.component';
-import { CommonModule, NgClass } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import {
   ProductService,
   ResponseData,
@@ -32,13 +32,13 @@ export class SelectCountryComponent {
 
   search(term: string) {
     if (!this.products) return;
-      const searchLower = term.toLowerCase();
-      this.sortedProducts = Object.entries(this.products)
-        .filter(([key]) => key.toLowerCase().includes(searchLower)) // Faqat kalitlarni qidiramiz
-        .reduce((acc, [key, value]) => {
-          acc[key] = value; // Qaytgan kalitlarni yangi obyektga qo'shamiz
-          return acc;
-        }, {} as ResponseData); // Yangi obyekt
+    const searchLower = term.toLowerCase();
+    this.sortedProducts = Object.entries(this.products)
+      .filter(([key]) => key.toLowerCase().includes(searchLower)) // Faqat kalitlarni qidiramiz
+      .reduce((acc, [key, value]) => {
+        acc[key] = value; // Qaytgan kalitlarni yangi obyektga qo'shamiz
+        return acc;
+      }, {} as ResponseData); // Yangi obyekt
   }
 
   selectItem(item: string) {
@@ -47,6 +47,6 @@ export class SelectCountryComponent {
 
   clearItem() {
     this.selectedItem = null;
-    this.sortedProducts = this.products
+    this.sortedProducts = this.products;
   }
 }

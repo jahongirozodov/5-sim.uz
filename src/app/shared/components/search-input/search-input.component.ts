@@ -1,4 +1,10 @@
-import { Component, EventEmitter, Input, OnChanges, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  Output,
+} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -13,8 +19,7 @@ export class SearchInputComponent {
   @Input() search: string = 'salom';
   @Output() searchChange = new EventEmitter<string>();
 
-
-  inputChange(event:any){
-    this.searchChange.emit(event.target.value)
+  inputChange(event: any) {
+    this.searchChange.emit(event.target.value);
   }
 }
